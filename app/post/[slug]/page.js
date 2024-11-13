@@ -6,7 +6,7 @@ import PostDetail from "@/app/components/postDetail"
 import axios from "axios"
 import dateFormat from "dateformat"
 import { useParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 
 const Post = () => {
   const { slug } = useParams()
@@ -29,13 +29,20 @@ const Post = () => {
   const createdAt = posts.createdAt
   const formatedCreatedAt = dateFormat(createdAt, "mmm dS, yyyy, h:MM TT")
 
+
   return (
     <>
       <NavBar />
       {
         posts.map(post => (
           <div key={post._id}>
-            <PostDetail title={post.title} createdAt={formatedCreatedAt} body={post.body} category={post.category.name} />
+            <PostDetail
+              title={post.title}
+              createdAt={formatedCreatedAt}
+              body={post.body}
+              category={post.category.name}
+              author={post.author.username}
+            />
           </div>
         ))
       }

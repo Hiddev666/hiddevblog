@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import NavBar from "./components/navBar";
 import HomePosts from "./layouts/homePosts";
 
@@ -5,8 +6,7 @@ const Home = () => {
   return (
     <div>
       <NavBar />
-      <HomePosts/>
-      
+        <HomePosts />
     </div>
   );
 }
