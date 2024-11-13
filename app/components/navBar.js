@@ -28,7 +28,7 @@ const NavBar = () => {
                     src={"/user-icon.svg"}
                     width={20}
                     height={20}
-                    alt="User"
+                    alt="User Profile"
                 />
             </div>
         }
