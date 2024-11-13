@@ -5,7 +5,7 @@ const PostDetail = (props) => {
                 <h1 className="text-5xl font-bold">{props.title}</h1>
                 <div className="flex items-center mt-4 gap-3">
                     <div className="bg-neutral-800 w-min px-3 py-1 rounded-md text-white text-sm">
-                        <p>College</p>
+                        <p>{props.category}</p>
                     </div>
                     <p className="font-medium">{props.createdAt}</p>
                 </div>

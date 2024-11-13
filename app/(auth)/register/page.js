@@ -1,28 +1,23 @@
 "use client"
 
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { setCookie } from "cookies-next";
 
-const Login = () => {
+const Register = () => {
 
     const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [token, setToken] = useState([])
-    const [payload, setPayload] = useState([])
 
-    const login = async (e) => {
+    const savePost = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://api-hiddevblog.vercel.app/api/auth/login", {
+            await axios.post("https://api-hiddevblog.vercel.app/api/auth/register", {
                 username,
+                email,
                 password
-            }).then(res => {
-                const token = res.data;
-                setToken(token.data)
-                setCookie("token", token.data.jwtToken);
-            })
+            });
         } catch (error) {
             console.log(error);
         }
@@ -42,10 +37,12 @@ const Login = () => {
                 <div className="w-full sm:w-1/2 flex justify-center">
                     <div>
                         <div className='w-4/5 sm:w-3/5'>
-                            <h1 className="text-4xl font-normal mb-5">hiddev<span className="font-bold">{token.jwtToken}.</span></h1>
+                            <h1 className="text-4xl font-normal mb-5">hiddev<span className="font-bold">blog.</span></h1>
                         </div>
-                        <form onSubmit={login}>
+                        <form onSubmit={savePost}>
                             <input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <br />
+                            <input type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
                             <br />
                             <input type="text" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
                             <br />
@@ -58,4 +55,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Register

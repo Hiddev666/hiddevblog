@@ -1,13 +1,26 @@
+"use client"
+
 import PostCard from "../components/postCard"
 import dateFormat from "dateformat"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 
-const HomePosts = async () => {
-    let data = await fetch("https://hiddevblog-api.vercel.app/api/posts")
-    let postsJson = await data.json()
-    let posts = postsJson.data
-    const createdAt = posts.createdAt
+const HomePosts = () => {
 
+    const [posts, setPost] = useState([])
+
+    useEffect(() => {
+        getPosts();
+    }, [])
+
+    const getPosts = async () => {
+        await axios.get("https://api-hiddevblog.vercel.app/api/posts")
+        .then(res => {
+            const post = res.data;
+            setPost(post.data)
+        })
+    }
 
     return (
         <div className="px-10 py-8 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
