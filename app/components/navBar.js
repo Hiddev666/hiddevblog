@@ -1,36 +1,28 @@
 "use client"
 
 import Link from "next/link"
-import { getCookie } from "cookies-next"
-import { useEffect, useState } from "react"
 import Image from 'next/image'
 
 
-const NavBar = () => {
-
-    const [token, setToken] = useState("")
-
-    useEffect(() => {
-        getCook();
-    }, [])
-
-    const getCook = async () => {
-        const jwt = await getCookie("token")
-        setToken(jwt)
-    }
+const NavBar = (props) => {
 
     const LoginButton = ({ jwt, isLogin }) => {
-        if (token === undefined) {
+        if (props.token === undefined) {
             return <button className="hover:bg-neutral-800 hover:text-white px-5 py-2 rounded  font-bold">Login</button>
         } else {
-            return <div className="w-100 h-100 bg-neutral-800 p-2 rounded-3xl">
-                <Image
-                    src={"/user-icon.svg"}
-                    width={20}
-                    height={20}
-                    alt="User Profile"
-                />
-            </div>
+            return (
+                <div className="flex items-center justify-between gap-2">
+                    <p>@{props.username}</p>
+                    <div className="w-100 h-100 bg-neutral-800 p-2 rounded-3xl">
+                        <Image
+                            src={"/user-icon.svg"}
+                            width={20}
+                            height={20}
+                            alt="User Profile"
+                        />
+                    </div>
+                </div>
+            )
         }
     }
 
