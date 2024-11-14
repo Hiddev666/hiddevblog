@@ -1,15 +1,15 @@
 "use client"
 
 import { Suspense } from "react";
-import NavBar from "./components/navBar";
-import HomePosts from "./layouts/homePosts";
-import UserPosts from "./layouts/userPosts";
+import NavBar from "../../components/navBar";
+import HomePosts from "../../layouts/homePosts";
+import UserPosts from "../../layouts/userPosts";
 import { jwtDecode } from "jwt-decode"
 import { getCookie } from "cookies-next"
 import { useEffect, useState } from "react"
 
 
-const Home = () => {
+const MyBlogs = () => {
 
   const [token, setToken] = useState("")
   const [userLogin, setUserLogin] = useState([])
@@ -38,9 +38,9 @@ const Home = () => {
   return (
     <div>
       <NavBar username={userLogin.username} token={token} />
-      <HomePosts/>
+      <MyPosts/>
     </div>
   );
 }
 
-export default Home
+export default MyBlogs

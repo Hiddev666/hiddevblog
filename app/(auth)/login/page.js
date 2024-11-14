@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { setCookie } from "cookies-next";
+import { redirect } from 'next/navigation';
 
 const Login = () => {
 
@@ -26,6 +27,7 @@ const Login = () => {
         } catch (error) {
             console.log(error);
         }
+        redirect("/")
     }
 
     return (
