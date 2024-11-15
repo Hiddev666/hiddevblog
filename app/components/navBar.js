@@ -3,13 +3,15 @@
 import Link from "next/link"
 import Image from 'next/image'
 import { useEffect, useState } from "react"
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { deleteCookie } from "cookies-next"
-
+import axios from "axios";
+import { getCookie } from "cookies-next";
 
 const NavBar = (props) => {
 
     const [status, setStatus] = useState("invisible")
+    const router = useRouter();
 
     const setTrue = () => {
         if (status != "invisible") {
@@ -17,11 +19,6 @@ const NavBar = (props) => {
         } else {
             setStatus("visible")
         }
-    }
-
-    const logout = () => {
-        deleteCookie("token")
-        redirect("/")
     }
 
     const AuthDropDown = () => {
@@ -66,7 +63,7 @@ const NavBar = (props) => {
         )
     }
 
-    const LoginButton = ({ jwt, isLogin }) => {
+    const LoginButton = () => {
         if (props.token === undefined) {
             return (
                 <Link href={"/login"}>
