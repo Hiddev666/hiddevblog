@@ -7,7 +7,8 @@ import UserPosts from "../../layouts/userPosts";
 import { jwtDecode } from "jwt-decode"
 import { getCookie } from "cookies-next"
 import { useEffect, useState } from "react"
-
+import Image from "next/image";
+import Link from "next/link";
 
 const MyBlogs = () => {
 
@@ -28,19 +29,20 @@ const MyBlogs = () => {
   }
 
   const MyPosts = () => {
-      if(token != undefined) {
-        return (
-          <UserPosts username={userLogin.username}/>
-        )
-      }
+    if (token != undefined) {
+      return (
+        <UserPosts username={userLogin.username} />
+      )
+    }
   }
 
-  return (
-    <div>
-      <NavBar username={userLogin.username} token={token} />
-      <MyPosts/>
-    </div>
-  );
+  
+return (
+  <div>
+    <NavBar username={userLogin.username} token={token} />
+    <MyPosts />
+  </div>
+);
 }
 
 export default MyBlogs

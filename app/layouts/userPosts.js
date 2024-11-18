@@ -8,6 +8,7 @@ import { getCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"
 import Image from "next/image"
 import { redirect } from "next/navigation"
+import Link from "next/link"
 
 
 const UserPosts = (props) => {
@@ -60,8 +61,7 @@ const UserPosts = (props) => {
     }
 
     const Pagination = () => {
-        if (totalPages != 1) {
-
+        if (totalPages != 0) {
             return (
                 <div className="w-full flex justify-center items-center mt-5">
                     <div className="flex gap-3">
@@ -88,12 +88,36 @@ const UserPosts = (props) => {
                     </div>
                 </div>
             )
+        } else {
+            return (
+                <div className="w-full flex justify-center items-center">
+                    <div className="flex flex-col justify-center items-center gap-3">
+                        <Image
+                            src={"/empty-book.svg"}
+                            width={60}
+                            height={60}
+                            alt="empty"
+                        />
+                        <p className="font-medium">Your blog is empty!</p>
+                        <Link href={"/user/blog/create"}>
+                            <div className="px-3 py-2 w-fit text-white bg-neutral-800 text-sm font-medium rounded-full flex gap-1 hover:bg-neutral-600">
+                                <Image
+                                    src={"/add-white.svg"}
+                                    width={20}
+                                    height={20}
+                                    alt="write"
+                                />
+                                <p>Create A Blog</p>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            )
         }
     }
 
     return (
         <div className="px-10 py-8 flex flex-col gap-3">
-            <h4 className="font-medium text-xl" id="blogs">All Blogs.</h4>
             <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {posts.map((post) => (
                     <PostCard
