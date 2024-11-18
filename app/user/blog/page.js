@@ -35,14 +35,13 @@ const MyBlogs = () => {
       )
     }
   }
-
   
-return (
-  <div>
-    <NavBar username={userLogin.username} token={token} />
-    <MyPosts />
-  </div>
-);
+  return (
+    <div>
+      <NavBar username={userLogin.username} token={token} />
+      <MyPosts />
+    </div>
+  );
 }
 
 export default MyBlogs

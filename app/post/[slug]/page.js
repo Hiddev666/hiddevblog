@@ -29,7 +29,6 @@ const Post = () => {
   const createdAt = posts.createdAt
   const formatedCreatedAt = dateFormat(createdAt, "mmm dS, yyyy, h:MM TT")
 
-
   return (
     <>
       <NavBar />

@@ -4,6 +4,7 @@ import NavBar from "@/app/components/navBar"
 import { useState, useEffect } from "react"
 import { getCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"
+import BlogForm from "../components/form"
 
 const MyBlogs = () => {
 
@@ -28,6 +29,7 @@ const MyBlogs = () => {
     return (
         <>
             <NavBar username={userLogin.username} token={token} />
+            <BlogForm/>
         </>
     )
 }
