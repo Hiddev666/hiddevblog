@@ -28,7 +28,7 @@ const BlogForm = () => {
                         </div>
                         <div className="flex flex-col w-full sm:w-2/5 gap-2">
                             <div className="px-4 py-3 ps-5 py-2 rounded-md border border-slate-400 text-slate-500">
-                                <select id="countries" className="w-full" onChange={(e) => setCategory(e.target.value)}>
+                                <select id="countries" className="w-full bg-white" onChange={(e) => setCategory(e.target.value)}>
                                     <option selected disabled>Select your blog category</option>
                                     <option value={"Entertainment"}>Entertainment</option>
                                     <option value={"College"}>College</option>
@@ -44,8 +44,8 @@ const BlogForm = () => {
                         ></textarea>
                     </div>
                     <div className="w-full flex flex-col-reverse sm:flex-row gap-3 mt-3">
-                        <Link href={"/user/blog"} className="w-full sm:w-1/6">
-                            <button className="bg-neutral-800 px-4 py-3 w-full text-neutral-800 rounded-md bg-neutral-300 font-medium">Cancel</button>
+                        <Link href={"/user/blog"} className="w-full sm:w-1/6 bg-white">
+                            <button className="px-4 py-3 w-full text-neutral-800 rounded-md bg-neutral-300 font-medium">Cancel</button>
                         </Link>
                         <button className="bg-neutral-800 px-4 py-3 w-full sm:w-1/6 text-white bg-neutral-800 font-medium rounded-md">Upload Now</button>
                     </div>
