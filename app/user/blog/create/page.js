@@ -9,6 +9,9 @@ import BlogForm from "../components/form"
 const MyBlogs = () => {
 
     const [content, setContent] = useState(null);
+    const [title, setTitle] = useState("")
+    const [category, setCategory] = useState("")
+    const [body, setBody] = useState("")
 
     const [token, setToken] = useState("")
     const [userLogin, setUserLogin] = useState([])
@@ -29,7 +32,7 @@ const MyBlogs = () => {
     return (
         <>
             <NavBar username={userLogin.username} token={token} />
-            <BlogForm/>
+            <BlogForm />
         </>
     )
 }
