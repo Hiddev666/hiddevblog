@@ -1,14 +1,10 @@
 "use client"
 
-import { Suspense } from "react";
 import NavBar from "../../components/navBar";
-import HomePosts from "../../layouts/homePosts";
 import UserPosts from "../../layouts/userPosts";
 import { jwtDecode } from "jwt-decode"
 import { getCookie } from "cookies-next"
 import { useEffect, useState } from "react"
-import Image from "next/image";
-import Link from "next/link";
 
 const MyBlogs = () => {
 
@@ -35,7 +31,7 @@ const MyBlogs = () => {
       )
     }
   }
-  
+
   return (
     <div>
       <NavBar username={userLogin.username} token={token} />

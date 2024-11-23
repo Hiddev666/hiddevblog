@@ -7,12 +7,17 @@ import UserPosts from "./layouts/userPosts";
 import { jwtDecode } from "jwt-decode"
 import { getCookie } from "cookies-next"
 import { useEffect, useState } from "react"
-
+import { redirect } from "next/navigation";
 
 const Home = () => {
 
-  const [token, setToken] = useState("")
   const [userLogin, setUserLogin] = useState([])
+  const [token, setToken] = useState("")
+
+
+  if (userLogin.id != undefined) {
+    redirect("/user/blog")
+  }
 
   useEffect(() => {
     getCook();
@@ -28,17 +33,17 @@ const Home = () => {
   }
 
   const MyPosts = () => {
-      if(token != undefined) {
-        return (
-          <UserPosts username={userLogin.username}/>
-        )
-      }
+    if (token != undefined) {
+      return (
+        <UserPosts username={userLogin.username} />
+      )
+    }
   }
 
   return (
     <div>
       <NavBar username={userLogin.username} token={token} />
-      <HomePosts/>
+      <HomePosts />
     </div>
   );
 }

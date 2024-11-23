@@ -17,6 +17,7 @@ const HomePosts = () => {
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState()
 
+
     useEffect(() => {
         getPosts();
         getCook();

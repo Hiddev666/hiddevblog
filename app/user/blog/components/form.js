@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import { getCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"
+import SuccessPopup from "@/app/components/successPopup"
 
 const BlogForm = () => {
 
@@ -13,6 +14,7 @@ const BlogForm = () => {
     const [body, setBody] = useState("")
     const [categories, setCategories] = useState([])
     const [userLogin, setUserLogin] = useState([])
+    const [success, setSuccess] = useState(false)
 
     useEffect(() => {
         getCategories();
@@ -48,6 +50,7 @@ const BlogForm = () => {
 
     const savePost = (e) => {
         e.preventDefault();
+
         try {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
             axios.post("https://api-hiddevblog.vercel.app/api/posts", {
@@ -56,9 +59,19 @@ const BlogForm = () => {
                 category,
                 author: userLogin.id
             });
-            alert("success")
+            setSuccess(true)
         } catch (error) {
             alert(error);
+        }
+    }
+
+    const ShowPopup = () => {
+        if (success) {
+            return (
+                <>
+                    <SuccessPopup message="Your Blog Successfully Posted" />
+                </>
+            )
         }
     }
 
@@ -71,10 +84,12 @@ const BlogForm = () => {
         titlearea.style.height = "1px"
         titlearea.style.height = (1 + titlearea.scrollHeight) + "px"
     }
-    
+
     return (
         <>
+            <ShowPopup />
             <div className="px-10 sm:px-20 py-8">
+                <p>{body}</p>
                 <form className="w-full" onSubmit={savePost}>
                     <div className="w-full gap-2 justify-between flex flex-col">
                         <div className="w-full flex flex-col justify-between">
@@ -108,7 +123,12 @@ const BlogForm = () => {
                                 rows="1"
                                 name="body"
                                 placeholder="Click and write your blog here ..."
-                                onChange={(e) => setBody(e.target.value)}
+                                onChange={(e) => {
+                                    let bodyEvent = e.target.value
+                                    let bodySplit = bodyEvent.split("\n")
+                                    let bodyJoin = bodySplit.join("</br>")
+                                    setBody(bodyJoin)
+                                }}
                             ></textarea>
                         </div>
                         <div className="w-full flex flex-col-reverse sm:flex-row gap-3 mt-3">

@@ -6,13 +6,32 @@ import PostDetail from "@/app/components/postDetail"
 import axios from "axios"
 import dateFormat from "dateformat"
 import { useParams } from "next/navigation"
+import { jwtDecode } from "jwt-decode"
+import { getCookie } from "cookies-next"
 import { Suspense, useEffect, useState } from "react"
 
 const Post = () => {
+
+
   const { slug } = useParams()
   // const slug = "julukan-julukan-dosen-tekkom"
 
   const [posts, setPost] = useState([])
+  const [userLogin, setUserLogin] = useState([])
+  const [token, setToken] = useState("")
+
+  useEffect(() => {
+    getCook();
+  }, [])
+
+  const getCook = async () => {
+    const jwt = await getCookie("token")
+    if (jwt != undefined) {
+      const jwtDecoded = jwtDecode(jwt)
+      setUserLogin(jwtDecoded)
+    }
+    setToken(jwt)
+  }
 
   useEffect(() => {
     getPosts();
@@ -31,7 +50,7 @@ const Post = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBar username={userLogin.username} token={token}/>
       {
         posts.map(post => (
           <div key={post._id}>

@@ -3,12 +3,13 @@
 import PostCard from "../components/postCard"
 import dateFormat from "dateformat"
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import { getCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"
 import Image from "next/image"
 import { redirect } from "next/navigation"
 import Link from "next/link"
+import { Atom } from "react-loading-indicators"
 
 
 const UserPosts = (props) => {
@@ -18,6 +19,7 @@ const UserPosts = (props) => {
     const [token, setToken] = useState([])
     const [page, setPage] = useState(1)
     const [totalPages, setTotalPages] = useState()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         getPosts();
@@ -35,6 +37,7 @@ const UserPosts = (props) => {
                 const post = res.data;
                 setPost(post.data)
                 setTotalPages(post.pagination.pages)
+                setLoading(false)
             })
     }
 
@@ -116,8 +119,19 @@ const UserPosts = (props) => {
         }
     }
 
+    const LoadingComponent = () => {
+        if (loading) {
+        return (
+            <div className="w-full flex justify-center py-20">
+                <Atom color="#3e443e" size="medium" text="Wait a minute ..." textColor="#806a6a" />
+            </div>
+        )
+        }
+    }
+
     return (
         <div className="px-10 py-8 flex flex-col gap-3">
+            <LoadingComponent />
             <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {posts.map((post) => (
                     <PostCard

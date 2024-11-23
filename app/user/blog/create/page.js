@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { getCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"
 import BlogForm from "../components/form"
+import { redirect } from "next/navigation"
 
 const MyBlogs = () => {
 
@@ -15,6 +16,7 @@ const MyBlogs = () => {
 
     const [token, setToken] = useState("")
     const [userLogin, setUserLogin] = useState([])
+
 
     useEffect(() => {
         getCook();
@@ -27,6 +29,10 @@ const MyBlogs = () => {
             setUserLogin(jwtDecoded)
         }
         setToken(jwt)
+    }
+
+    if (userLogin.id == undefined) {
+        redirect("/login")
     }
 
     return (
