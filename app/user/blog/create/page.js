@@ -31,10 +31,6 @@ const MyBlogs = () => {
         setToken(jwt)
     }
 
-    if (userLogin.id == undefined) {
-        redirect("/login")
-    }
-
     return (
         <>
             <NavBar username={userLogin.username} token={token} />

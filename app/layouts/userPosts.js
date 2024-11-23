@@ -9,7 +9,6 @@ import { jwtDecode } from "jwt-decode"
 import Image from "next/image"
 import { redirect } from "next/navigation"
 import Link from "next/link"
-import { Atom } from "react-loading-indicators"
 
 
 const UserPosts = (props) => {
@@ -123,7 +122,7 @@ const UserPosts = (props) => {
         if (loading) {
         return (
             <div className="w-full flex justify-center py-20">
-                <Atom color="#3e443e" size="medium" text="Wait a minute ..." textColor="#806a6a" />
+                <p>Loading ... </p>
             </div>
         )
         }
