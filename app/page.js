@@ -15,9 +15,9 @@ const Home = () => {
   const [token, setToken] = useState("")
 
 
-  if (userLogin.id != undefined) {
-    redirect("/user/blog")
-  }
+  // if (userLogin.id != undefined) {
+  //   redirect("/user/blog")
+  // }
 
   useEffect(() => {
     getCook();
