@@ -5,6 +5,7 @@ import axios from "axios"
 import { getCookie } from "cookies-next"
 import { jwtDecode } from "jwt-decode"
 import SuccessPopup from "@/app/components/successPopup"
+import { split } from "postcss/lib/list"
 
 const BlogForm = () => {
 
@@ -89,7 +90,6 @@ const BlogForm = () => {
         <>
             <ShowPopup />
             <div className="px-10 sm:px-20 py-8">
-                <p>{body}</p>
                 <form className="w-full" onSubmit={savePost}>
                     <div className="w-full gap-2 justify-between flex flex-col">
                         <div className="w-full flex flex-col justify-between">
@@ -125,9 +125,29 @@ const BlogForm = () => {
                                 placeholder="Click and write your blog here ..."
                                 onChange={(e) => {
                                     let bodyEvent = e.target.value
-                                    let bodySplit = bodyEvent.split("\n")
-                                    let bodyJoin = bodySplit.join("</br>")
-                                    setBody(bodyJoin)
+
+                                    let splitEnter = bodyEvent.split("\n")
+                                    let joinEnter = splitEnter.join("</br>")
+                                    let splitOpen = joinEnter.split("[")
+                                    let finalText = joinEnter
+                                    if (splitOpen.length > 1) {
+                                        let splitOpenLink = finalText.split("[")
+
+                                        let splitOpenJoin = splitOpen.join("<a class='editorlink' href='")
+                                        let splitOpenJoinLink = splitOpenLink.join("|")
+
+                                        let splitClose = splitOpenJoin.split("]")
+                                        let splitCloseLink = splitOpenJoinLink.split("]")
+
+                                        if (splitCloseLink.length > 1) {
+                                            let lastLink = splitCloseLink[splitCloseLink.length - 2]
+                                            let currentLink = lastLink.split("|")
+                                        }
+
+                                        finalText = splitClose.join(`'/>`)
+                                    }
+
+                                    setBody(finalText)
                                 }}
                             ></textarea>
                         </div>

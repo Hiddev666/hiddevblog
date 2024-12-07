@@ -10,14 +10,12 @@ import { useEffect, useState } from "react"
 import { redirect } from "next/navigation";
 
 const Home = () => {
-
   const [userLogin, setUserLogin] = useState([])
   const [token, setToken] = useState("")
 
-
-  // if (userLogin.id != undefined) {
-  //   redirect("/user/blog")
-  // }
+  if (userLogin.id != undefined) {
+    redirect("/user/blog")
+  }
 
   useEffect(() => {
     getCook();
