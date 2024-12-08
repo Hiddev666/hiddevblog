@@ -52,7 +52,7 @@ const Login = () => {
                             <button className='mt-3 bg-blue-950 text-white font-semibold w-full px-3 py-3 rounded-lg' type='submit'>Login</button>
                         </form>
                         <div className='w-full flex justify-center items-center'>
-                            <p className='text-center flex gap-2'>Don't have any account? <a href='/login' className='font-bold text-blue-950'><p>Register</p></a></p>
+                            <p className='text-center'>Don't have any account? <a href='/register' className='font-bold text-blue-950'>Register</a></p>
                         </div>
                     </div>
                 </div>

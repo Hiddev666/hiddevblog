@@ -68,24 +68,13 @@ const UserPosts = (props) => {
                 <div className="w-full flex justify-center items-center mt-5">
                     <div className="flex gap-3">
                         <button onClick={previousPage} className="bg-blue-950 p-2 rounded-md flex justify-center items-center hover:bg-blue-900">
-                            <Image
-                                src={"/arrow-right.svg"}
-                                width={20}
-                                height={20}
-                                alt="arrow"
-                                className="rotate-180"
-                            />
+                            <p>&#128072;</p>
                         </button>
                         <div className="px-4 py-2 rounded-md">
                             <p className="font-medium text-neutral-800">{page} of {totalPages}</p>
                         </div>
                         <button onClick={nextPage} className="bg-blue-950 p-2 rounded-md flex justify-center items-center hover:bg-blue-900">
-                            <Image
-                                src={"/arrow-right.svg"}
-                                width={20}
-                                height={20}
-                                alt="arrow"
-                            />
+                            <p>&#128073;</p>
                         </button>
                     </div>
                 </div>
@@ -128,14 +117,16 @@ const UserPosts = (props) => {
         }
     }
 
+
     return (
-        <div className="px-10 py-8 flex flex-col gap-3">
+        <div className="px-5 py-8 flex flex-col gap-3">
             <LoadingComponent />
             <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
                 {posts.map((post) => (
                     <PostCard
                         key={post._id}
                         title={post.title}
+                        author={post.author.username}
                         body="Lorem Ipsum Dolor Sit Amet"
                         createdAt={dateFormat(post.createdAt, "mmm dS, yyyy")}
                         url={`/post/${post.slug}`}

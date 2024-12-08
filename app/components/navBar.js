@@ -89,8 +89,8 @@ const NavBar = (props) => {
     const UserNavbar = () => {
         if (props.username != undefined) {
             return (
-                <div className="w-full px-10 sticky top-0 bg-gray-50">
-                    <div className="border-b py-2 px-5 gap-3 flex">
+                <div className="w-full px-8 sticky top-0 bg-gray-50">
+                    <div className="border-b py-2 px-8 gap-3 flex">
                         <Link href={"/user/blog/create"}>
                             <div className="p-1 w-fit text-sm font-medium rounded-full flex gap-1 hover:bg-gray-100">
                                 <Image
@@ -113,7 +113,7 @@ const NavBar = (props) => {
 
     return (
         <>
-            <div className="w-full bg-white px-10 py-5 border-b flex justify-between items-center">
+            <div className="w-full bg-white px-8 py-5 border-b flex justify-between items-center">
                 <Link href="/">
                     {/* <h2 className="text-2xl font-normal text-blue-950">hiddev<span className="font-bold">blog.</span></h2> */}
                     <Image
