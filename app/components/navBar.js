@@ -7,10 +7,12 @@ import { redirect, useRouter } from 'next/navigation'
 import { deleteCookie } from "cookies-next"
 import axios from "axios";
 import { getCookie } from "cookies-next";
+import Register from "../(auth)/register/page"
 
 const NavBar = (props) => {
 
     const [status, setStatus] = useState("invisible")
+
     const router = useRouter();
 
     const setTrue = () => {
@@ -29,7 +31,7 @@ const NavBar = (props) => {
                     <div className="flex items-center justify-between gap-2">
                         <p>@{props.username}</p>
 
-                        <div className="w-100 h-100 bg-neutral-800 p-2 rounded-3xl">
+                        <div className="w-100 h-100 bg-blue-950 p-2 rounded-3xl">
                             <Image
                                 src={"/user-icon.svg"}
                                 width={20}
@@ -66,12 +68,12 @@ const NavBar = (props) => {
     const LoginButton = () => {
         if (props.token === undefined) {
             return (
-                <div>
+                <div className="flex justify-end">
                     <Link href={"/login"}>
-                        <button className="px-5 py-2 rounded  font-medium">Login</button>
+                        <button className="px-5 py-2 rounded  font-medium collapse md:visible">Login</button>
                     </Link>
                     <Link href={"/register"}>
-                        <button className="bg-neutral-800 text-white px-5 py-2 rounded-3xl font-medium hover:bg-slate-700">Get Started</button>
+                        <button className="bg-blue-950 text-white px-5 py-2 rounded-3xl font-medium hover:bg-blue-900 text-sm md:text-base w-max ease-in-out duration-300">Get Started</button>
                     </Link>
                 </div>
             )
@@ -113,11 +115,17 @@ const NavBar = (props) => {
         <>
             <div className="w-full bg-white px-10 py-5 border-b flex justify-between items-center">
                 <Link href="/">
-                    <h2 className="text-2xl font-normal text-neutral-800">hiddev<span className="font-bold">blog.</span></h2>
+                    {/* <h2 className="text-2xl font-normal text-blue-950">hiddev<span className="font-bold">blog.</span></h2> */}
+                    <Image
+                        src={"/logo.svg"}
+                        width={140}
+                        height={140}
+                        alt="logo"
+                    />
                 </Link>
                 <LoginButton />
             </div>
-            <UserNavbar/>
+            <UserNavbar />
         </>
     )
 }

@@ -8,6 +8,7 @@
   scroll-behavior: smooth;
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -18,10 +19,50 @@
 .editorlink::before {
   content: attr(href);
   text-decoration: underline;
-  background-color: #202020;
-  padding: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
-  border-radius: 5px;
-  color: white;
+  font-weight: 500;
+  color: #172554;
+}
+
+#hand {
+  width: 21%;
+  animation: handAnimation 3s infinite;
+}
+
+@media (max-width: 768px) {
+  #laptop {
+    bottom: -7%;
+  }
+
+  #hand {
+    width: 35%;
+    animation: handAnimation 3s infinite;
+  }
+}
+
+@keyframes handAnimation {
+  0% {
+    bottom: 0%;
+  }
+
+  50% {
+    bottom: 8%;
+  }
+
+  100% {
+    bottom: 0%;
+  }
+}
+
+@keyframes handAnimationMobile {
+  0% {
+    bottom: 0%;
+  }
+
+  50% {
+    bottom: 5%;
+  }
+
+  100% {
+    bottom: 0%;
+  }
 }

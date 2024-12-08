@@ -28,7 +28,7 @@ const PostDetail = (props) => {
                         </div>
                     </div>
                     <Link href={`/category/${props.category}`}>
-                        <div className="bg-neutral-800 w-min px-3 py-1 rounded-md text-white text-sm">
+                        <div className="bg-blue-950 w-min px-3 py-1 rounded-md text-white text-sm">
                             <p>#{props.category}</p>
                         </div>
                     </Link>

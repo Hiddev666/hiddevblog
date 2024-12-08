@@ -67,7 +67,7 @@ const UserPosts = (props) => {
             return (
                 <div className="w-full flex justify-center items-center mt-5">
                     <div className="flex gap-3">
-                        <button onClick={previousPage} className="bg-neutral-800 p-2 rounded-md flex justify-center items-center hover:bg-neutral-600">
+                        <button onClick={previousPage} className="bg-blue-950 p-2 rounded-md flex justify-center items-center hover:bg-blue-900">
                             <Image
                                 src={"/arrow-right.svg"}
                                 width={20}
@@ -79,7 +79,7 @@ const UserPosts = (props) => {
                         <div className="px-4 py-2 rounded-md">
                             <p className="font-medium text-neutral-800">{page} of {totalPages}</p>
                         </div>
-                        <button onClick={nextPage} className="bg-neutral-800 p-2 rounded-md flex justify-center items-center hover:bg-neutral-600">
+                        <button onClick={nextPage} className="bg-blue-950 p-2 rounded-md flex justify-center items-center hover:bg-blue-900">
                             <Image
                                 src={"/arrow-right.svg"}
                                 width={20}

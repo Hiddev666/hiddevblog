@@ -3,8 +3,9 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import axios from 'axios'
+import NavBar from '@/app/components/navBar'
 
-const Register = () => {
+const Register = (props) => {
 
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
@@ -25,29 +26,23 @@ const Register = () => {
 
     return (
         <>
-            <div className="w-full h-screen flex flex-col sm:flex-row justify-between items-center">
-                <div className="w-full sm:w-1/2  h-screen flex justify-center items-center">
-                    <Image
-                        src="/login.svg"
-                        width={600}
-                        height={600}
-                        alt="Picture of the author"
-                    />
-                </div>
-                <div className="w-full sm:w-1/2 flex justify-center">
-                    <div>
-                        <div className='w-4/5 sm:w-3/5'>
-                            <h1 className="text-4xl font-normal mb-5">hiddev<span className="font-bold">blog.</span></h1>
+            <NavBar />
+            <div className="w-full top-0 flex flex-col sm:flex-row justify-center items-center py-20">
+                <div className="w-full sm:w-1/2 flex flex-col items-center justify-between gap-5 bg-white">
+                    <div className='w-3/5 flex flex-col items-start gap-5'>
+                        <div>
+                            <h1 className='text-4xl font-bold text-neutral-800'>Get Started.</h1>
+                            <p className='text-neutral-700 text-sm'>Get started with fill create your account!</p>
                         </div>
-                        <form onSubmit={savePost}>
-                            <input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
-                            <br />
-                            <input type="text" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
-                            <br />
-                            <input type="text" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
-                            <br />
-                            <button type='submit' className='bg-neutral-800 px-3 py-1'>Submit</button>
+                        <form onSubmit={savePost} className='flex flex-col gap-3 w-full'>
+                            <input className='border w-full px-3 py-2 rounded-md' type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input className='border w-full px-3 py-2 rounded-md' type="email" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} />
+                            <input className='border w-full px-3 py-2 rounded-md' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                            <button className='mt-3 bg-blue-950 text-white font-semibold w-full px-3 py-3 rounded-lg' type='submit'>Register</button>
                         </form>
+                        <div className='w-full flex justify-center items-center'>
+                            <p className='text-center'>Already have an account? <a href='/login' className='font-bold text-blue-950'>Login</a></p>
+                        </div>
                     </div>
                 </div>
             </div>

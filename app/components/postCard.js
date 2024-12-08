@@ -38,13 +38,13 @@ const PostCard = (props) => {
                 <Author/>
                 </div>
                 <div className="flex gap-2 mt-1">
-                    <div className="bg-neutral-800 w-min px-2 py-1 rounded-md text-white font-medium text-xs">
+                    <div className="bg-blue-950 w-min px-2 py-1 rounded-md text-white font-medium text-xs">
                         <p>#{props.category}</p>
                     </div>
                 </div>
             </div>
             <Link href={props.url} className="w-100">
-                <div className="flex mt-10 bg-neutral-800 text-sm font-medium rounded-md p-2 justify-center items-center text-white gap-1">
+                <div className="flex mt-10 bg-blue-950 text-sm font-medium rounded-md p-2 justify-center items-center text-white gap-1">
                     Read more
                     <Image
                         src={"/arrow-right.svg"}
