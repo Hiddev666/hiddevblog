@@ -109,33 +109,33 @@ const UserPosts = (props) => {
 
     const LoadingComponent = () => {
         if (loading) {
-        return (
-            <div className="w-full flex justify-center py-20">
-                <p>Loading ... </p>
-            </div>
-        )
+            return (
+                <div className="w-full flex justify-center py-20">
+                    <p>Loading ... </p>
+                </div>
+            )
         }
     }
 
 
     return (
-        <div className="px-5 py-8 flex flex-col gap-3">
-            <LoadingComponent />
-            <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
-                {posts.map((post) => (
-                    <PostCard
-                        key={post._id}
-                        title={post.title}
-                        author={post.author.username}
-                        body="Lorem Ipsum Dolor Sit Amet"
-                        createdAt={dateFormat(post.createdAt, "mmm dS, yyyy")}
-                        url={`/post/${post.slug}`}
-                        category={post.category.name}
-                    />
-                ))}
+            <div className="px-5 md:px-16 py-8 flex flex-col gap-3">
+                <LoadingComponent />
+                <div className="flex flex-col gap-4">
+                    {posts.map((post) => (
+                        <PostCard
+                            key={post._id}
+                            title={post.title}
+                            author={post.author.username}
+                            body="Lorem Ipsum Dolor Sit Amet"
+                            createdAt={dateFormat(post.createdAt, "mmm dS, yyyy")}
+                            url={`/post/${post.slug}`}
+                            category={post.category.name}
+                        />
+                    ))}
+                </div>
+                <Pagination />
             </div>
-            <Pagination />
-        </div>
     )
 }
 

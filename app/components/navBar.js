@@ -31,13 +31,8 @@ const NavBar = (props) => {
                     <div className="flex items-center justify-between gap-2">
                         <p>@{props.username}</p>
 
-                        <div className="w-100 h-100 bg-blue-950 p-2 rounded-3xl">
-                            <Image
-                                src={"/user-icon.svg"}
-                                width={20}
-                                height={20}
-                                alt="User Profile"
-                            />
+                        <div className="bg-blue-950 p-2 rounded-3xl">
+                            <p>&#128102;</p>
                         </div>
                     </div>
                 </button>
@@ -73,7 +68,7 @@ const NavBar = (props) => {
                         <button className="px-5 py-2 rounded  font-medium collapse md:visible">Login</button>
                     </Link>
                     <Link href={"/register"}>
-                        <button className="bg-blue-950 text-white px-5 py-2 rounded-3xl font-medium hover:bg-blue-900 text-sm md:text-base w-max ease-in-out duration-300">Get Started</button>
+                        <button className="bg-blue-950 text-white px-5 py-2 rounded-3xl font-medium hover:bg-blue-900 text-sm md:text-base w-max ease-in-out duration-300">Get Started &#128640;</button>
                     </Link>
                 </div>
             )
@@ -93,13 +88,7 @@ const NavBar = (props) => {
                     <div className="border-b py-2 px-8 gap-3 flex">
                         <Link href={"/user/blog/create"}>
                             <div className="p-1 w-fit text-sm font-medium rounded-full flex gap-1 hover:bg-gray-100">
-                                <Image
-                                    src={"/add.svg"}
-                                    width={20}
-                                    height={20}
-                                    alt="write"
-                                />
-                                <p>Create A Blog</p>
+                                <p>&#128196; Create A Blog</p>
                             </div>
                         </Link>
                         <div className="p-1 w-fit text-sm rounded-full flex gap-2">
@@ -116,12 +105,7 @@ const NavBar = (props) => {
             <div className="w-full bg-white px-8 py-5 border-b flex justify-between items-center">
                 <Link href="/">
                     {/* <h2 className="text-2xl font-normal text-blue-950">hiddev<span className="font-bold">blog.</span></h2> */}
-                    <Image
-                        src={"/logo.svg"}
-                        width={140}
-                        height={140}
-                        alt="logo"
-                    />
+                    <h1 className="font-medium text-2xl">hiddev&#128221;</h1>
                 </Link>
                 <LoginButton />
             </div>

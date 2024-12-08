@@ -122,7 +122,7 @@ const BlogForm = () => {
                                 id="bodyarea"
                                 rows="1"
                                 name="body"
-                                placeholder="Click and write your blog here ..."
+                                placeholder="Click and write your blog here &#128209;"
                                 onChange={(e) => {
                                     let bodyEvent = e.target.value
 
@@ -155,7 +155,7 @@ const BlogForm = () => {
                             <Link href={"/user/blog"} className="w-full sm:w-1/6 bg-white">
                                 <button className="px-2 py-2 w-full text-neutral-800 rounded-md bg-neutral-300 font-medium">Cancel</button>
                             </Link>
-                            <button type="submit" className="bg-blue-950 px-2 py-2 w-full sm:w-1/6 text-white font-medium rounded-md">Upload Now</button>
+                            <button type="submit" className="bg-blue-950 px-2 py-2 w-full sm:w-1/6 text-white font-medium rounded-md">Upload Now &#128640;</button>
                         </div>
                     </div>
                 </form>
