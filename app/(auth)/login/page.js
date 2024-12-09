@@ -13,7 +13,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [token, setToken] = useState([])
     const [payload, setPayload] = useState([])
-    const [monkey, setMonkey] = useState("Login&#128585;")
+    const [monkey, setMonkey] = useState("Log In&#128585;")
 
     const login = async (e) => {
         e.preventDefault();
@@ -36,7 +36,7 @@ const Login = () => {
         setMonkey("Login&#128584;")
     }
     const passInputBlur = (e) => {
-        setMonkey("Login&#128585;")
+        setMonkey("Log In&#128585;")
     }
 
     {/* <input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />

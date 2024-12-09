@@ -41,7 +41,7 @@ const Register = (props) => {
                             <button className='mt-3 bg-blue-950 text-white font-semibold w-full px-3 py-3 rounded-lg' type='submit'>Register &#129485;</button>
                         </form>
                         <div className='w-full flex justify-center items-center'>
-                            <p className='text-center'>Already have an account? <a href='/login' className='font-bold text-blue-950'>Login</a></p>
+                            <p className='text-center'>Already have an account? <a href='/login' className='font-bold text-blue-950'>Log In</a></p>
                         </div>
                     </div>
                 </div>

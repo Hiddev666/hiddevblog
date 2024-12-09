@@ -52,7 +52,7 @@ const Post = () => {
           <div key={post._id}>
             <PostDetail
               title={post.title}
-              createdAt={dateFormat(post.createdAt, "mmm dS, yyyy, h:MM TT")}
+              createdAt={dateFormat(post.updatedAt, "mmm dS, yyyy, h:MM TT")}
               body={post.body}
               category={post.category.name}
               author={post.author.username}

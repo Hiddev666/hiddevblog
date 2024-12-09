@@ -61,6 +61,8 @@ const MyBlogs = () => {
         bodyFinal = bodyJoinEndA
     })
 
+    
+
     return (
         <>
             <NavBar username={userLogin.username} token={token} />
@@ -69,6 +71,8 @@ const MyBlogs = () => {
                     <div key={post._id}>
                         <BlogFormUpdate
                             title={post.title}
+                            slug={post.slug}
+                            categoryId={post.category._id}
                             category={post.category.name}
                             body={bodyFinal}
                         />
