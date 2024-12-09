@@ -21,7 +21,7 @@ const PostCard = (props) => {
 
     return (
         <a href={props.url}>
-            <div className="p-2 pb-5 border-b flex flex-col justify-between">
+            <div className="p-2 pb-5 border-b flex justify-between items-center">
                 <div>
                     <div className="w-max py-1 rounded-md text-white text-sm flex justify-between items-center gap-2">
                         <p>&#128193;</p>
@@ -36,6 +36,12 @@ const PostCard = (props) => {
                             <p className="text-neutral-800">{props.createdAt}</p>
                         </div>
                     </div>
+                </div>
+                <div className="flex flex-col gap-2">
+                    <Link href={`/user/blog/update/${props.slug}`}>
+                        <button className="p-1 px-2 border rounded-md text-sm">&#9999;&#65039;</button>
+                    </Link>
+                    <button className="p-1 px-2 border rounded-md text-sm">&#128465;&#65039;</button>
                 </div>
             </div>
         </a>

@@ -65,7 +65,7 @@ const NavBar = (props) => {
             return (
                 <div className="flex justify-end">
                     <Link href={"/login"}>
-                        <button className="px-5 py-2 rounded  font-medium collapse md:visible">Login</button>
+                        <button className="px-5 py-2 rounded  font-medium collapse md:visible">Sign In</button>
                     </Link>
                     <Link href={"/register"}>
                         <button className="bg-blue-950 text-white px-5 py-2 rounded-3xl font-medium hover:bg-blue-900 text-sm md:text-base w-max ease-in-out duration-300">Get Started &#128640;</button>

@@ -130,6 +130,7 @@ const UserPosts = (props) => {
                             body="Lorem Ipsum Dolor Sit Amet"
                             createdAt={dateFormat(post.createdAt, "mmm dS, yyyy")}
                             url={`/post/${post.slug}`}
+                            slug={`${post.slug}`}
                             category={post.category.name}
                         />
                     ))}
