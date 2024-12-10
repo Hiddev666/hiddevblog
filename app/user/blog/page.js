@@ -4,7 +4,8 @@ import NavBar from "../../components/navBar";
 import UserPosts from "../../layouts/userPosts";
 import { jwtDecode } from "jwt-decode"
 import { getCookie } from "cookies-next"
-import { useEffect, useState } from "react"
+import { Component, useEffect, useState } from "react"
+import Head from "next/head";
 
 const MyBlogs = () => {
 
@@ -34,10 +35,11 @@ const MyBlogs = () => {
 
   return (
     <div>
-      <NavBar username={userLogin.username} token={token} />
+      <NavBar username={userLogin.username} token={token} title="Update - "/>
       <MyPosts />
     </div>
   );
+
 }
 
 export default MyBlogs

@@ -12,7 +12,6 @@ import Image from 'next/image'
 import Link from "next/link";
 import Register from "./(auth)/register/page";
 
-
 const Home = () => {
   const [userLogin, setUserLogin] = useState([])
   const [token, setToken] = useState("")
@@ -44,7 +43,7 @@ const Home = () => {
 
   return (
     <div>
-      <NavBar username={userLogin.username} token={token} />
+      <NavBar username={userLogin.username} token={token} title="" />
       <div className="w-full absolute h-5/6 flex flex-col md:flex-row justify-center mt-5 items-center px-10 md:gap-0">
         <div className="flex flex-col md:flex-row justify-around items-center gap-16 md:gap-6 w-full">
           <div className="flex flex-col gap-5 mb-0 md:mb-20">

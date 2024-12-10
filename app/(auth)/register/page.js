@@ -26,7 +26,7 @@ const Register = (props) => {
 
     return (
         <>
-            <NavBar />
+            <NavBar title="Get Started - "/>
             <div className="w-full top-0 flex flex-col sm:flex-row justify-center items-center py-20">
                 <div className="w-full sm:w-1/2 flex flex-col items-center justify-between gap-5 bg-white">
                     <div className='w-3/5 flex flex-col items-start gap-5'>

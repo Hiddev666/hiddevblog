@@ -44,12 +44,14 @@ const Post = () => {
         setPost(post.data)
       })
   }
+
+
   return (
     <>
-      <NavBar username={userLogin.username} token={token} />
       {
         posts.map(post => (
           <div key={post._id}>
+            <NavBar username={userLogin.username} token={token} title={`${post.title} - `} />
             <PostDetail
               title={post.title}
               createdAt={dateFormat(post.updatedAt, "mmm dS, yyyy, h:MM TT")}

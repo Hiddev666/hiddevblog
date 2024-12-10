@@ -8,12 +8,18 @@ import { deleteCookie } from "cookies-next"
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import Register from "../(auth)/register/page"
+import Head from "next/head"
+
 
 const NavBar = (props) => {
 
     const [status, setStatus] = useState("invisible")
 
     const router = useRouter();
+
+    useEffect(() => {
+        document.title = `${props.title}hiddevBlog`
+    })
 
     const setTrue = () => {
         if (status != "invisible") {

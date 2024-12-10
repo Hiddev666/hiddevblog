@@ -33,7 +33,7 @@ const MyBlogs = () => {
 
     return (
         <>
-            <NavBar username={userLogin.username} token={token} />
+            <NavBar username={userLogin.username} token={token} title="Create - "/>
             <BlogForm />
         </>
     )
